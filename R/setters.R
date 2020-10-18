@@ -129,7 +129,7 @@ redefine_generation <- function(generation, start, end) {
   # Fix this generation
   .gen_df[.gen_df$name == generation,]$start <<- start
   .gen_df[.gen_df$name == generation,]$end <<- end
-  
+
   # Fix previous generation
   if (!is.na(get_prev_gen(generation))) {
     .gen_df[.gen_df$name == get_prev_gen(generation),]$end <<- start - 1
@@ -140,15 +140,11 @@ redefine_generation <- function(generation, start, end) {
     .gen_df[.gen_df$name == get_next_gen(generation),]$start <<- end + 1
   }
 
-  # Reset the ranges
-  .gen_df <<- mapply(function(x, y) {x:y}, .gen_df$start, .gen_df$end)
-  
-  message(get_prev_gen(generation), " is now from ", 
-          get_start(get_prev_gen(generation)), " to ", 
+  message(get_prev_gen(generation), " is now from ",
+          get_start(get_prev_gen(generation)), " to ",
           get_end(get_prev_gen(generation)))
   message(generation, " is now from ", start, " to ", end)
-  message(get_next_gen(generation), " is now from ", 
-          get_start(get_next_gen(generation)), " to ", 
+  message(get_next_gen(generation), " is now from ",
+          get_start(get_next_gen(generation)), " to ",
           get_end(get_next_gen(generation)))
-  
 }
