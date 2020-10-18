@@ -1,13 +1,14 @@
 Package: generations
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Converts Birth Years to Generation Names
+Version: 0.0.1
 Authors@R: 
     person(given = "Joseph A.",
            family = "Stanley",
            role = c("aut", "cre"),
            email = "joey_stanley@byu.edu",
            comment = c(ORCID = "0000-0002-9185-0048"))
-Description: What the package does (one paragraph).
+Description: Converts birth years to generation names like Millennial, Gen X, 
+  and Boomer, following years and names in Howe & Strauss' Generational Theory.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
