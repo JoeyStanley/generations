@@ -65,8 +65,6 @@ generations <- function(yob, full_names = FALSE,
   gens
 }
 
-.gen_df[1999 >= .gen_df$start & 1999 <= .gen_df$end,]
-
 
 #' Get full generation names
 #' 
