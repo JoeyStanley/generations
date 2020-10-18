@@ -38,7 +38,7 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 .Rproj.user
-
+.DS_Store
 
 *.Rbuildignore
 Sandbox.Rmd
