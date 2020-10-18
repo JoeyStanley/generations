@@ -1,17 +1,14 @@
-
 #' Show generational data
 #' 
 #' Displays the generation names, start years, and end years.
 #' @export
 show_generations <- function() {
-  gen_df %>%
-    dplyr::select(name, start, end) %>%
-    dplyr::arrange(-start) %>%
-    print()
+  .gen_df[order(-.gen_df$start),c("name", "start", "end")]
 }
 
-
 #' Get a generation's start or end year
+#' 
+#' @param generation a string, exactly matching a generation's name
 #' 
 #' @examples 
 #' get_start("Millennial")
@@ -20,15 +17,15 @@ show_generations <- function() {
 #' get_end(c("Millennial", "Lost"))
 #' @export
 get_start <- function(generation) {
-  indices <- match(generation, gen_df$name)
-  gen_df$start[indices]
+  indices <- match(generation, .gen_df$name)
+  .gen_df$start[indices]
 }
 
 #' @rdname get_start
 #' @export
 get_end <- function(generation) {
-  indices <- match(generation, gen_df$name)
-  gen_df$end[indices]
+  indices <- match(generation, .gen_df$name)
+  .gen_df$end[indices]
 }
 
 
@@ -48,9 +45,9 @@ get_end <- function(generation) {
 #' get_next_gen("Gen Z")
 #' @export
 get_prev_gen <- function(gen) {
-  prev_gen_rank <- match(gen, gen_df$name) + 1
-  if (prev_gen_rank > 0 & prev_gen_rank <= length(gen_df$name)) {
-    gen_df$name[prev_gen_rank]
+  prev_gen_rank <- match(gen, .gen_df$name) + 1
+  if (prev_gen_rank > 0 & prev_gen_rank <= length(.gen_df$name)) {
+    .gen_df$name[prev_gen_rank]
   } else {
     NA
   }
@@ -60,9 +57,9 @@ get_prev_gen <- function(gen) {
 #' @rdname get_prev_gen
 #' @export
 get_next_gen <- function(gen) {
-  next_gen_rank <- match(gen, gen_df$name) - 1
-  if (next_gen_rank > 0 & next_gen_rank <= length(gen_df$name)) {
-    gen_df$name[next_gen_rank]
+  next_gen_rank <- match(gen, .gen_df$name) - 1
+  if (next_gen_rank > 0 & next_gen_rank <= length(.gen_df$name)) {
+    .gen_df$name[next_gen_rank]
   } else {
     NA
   }
