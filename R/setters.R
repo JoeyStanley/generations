@@ -6,6 +6,9 @@
 #' 
 #' @seealso \code{\link{rename_generation}}, \code{\link{redefine_generation}}
 #' 
+#' @examples 
+#' reset_generations()
+#' 
 #' @export
 reset_generations <- function() {
   .gen_df <<- assign(".gen_df", generations::gen_df, envir = globalenv())
@@ -35,17 +38,18 @@ reset_generations <- function() {
 #' 
 #' @examples 
 #' rename_generation("Gen Z", "Zoomer")
-#' rename_generation("Baby Boom", "Boomer")
+#' rename_generation("Boomer", "Baby Boom")
 #' show_generations()
 #' 
-#' use_zoomer()
 #' use_gen_z()
+#' use_zoomer()
 #' use_gen_y()
 #' use_millennial()
 #' use_13th()
-#' use_gen_z()
-#' use_baby_boom()
+#' use_gen_x()
 #' use_boomer()
+#' use_baby_boom()
+
 #' @export
 rename_generation <- function(old_name, new_name) {
   .gen_df[.gen_df$name == old_name,]$name <<- new_name

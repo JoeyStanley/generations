@@ -9,3 +9,6 @@ show_generations()
 \description{
 Displays the generation names, start years, and end years.
 }
+\examples{
+show_generations()
+}

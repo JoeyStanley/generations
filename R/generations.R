@@ -1,4 +1,4 @@
-#' Convert Year of Birth to Generations.
+#' Convert year of birth to generations
 #' 
 #' This is the main function in this package. It will convert one or more years
 #' to the corresponding generation. Generation names and years are taken from 

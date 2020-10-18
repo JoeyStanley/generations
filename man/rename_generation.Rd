@@ -53,15 +53,15 @@ dataset is with \code{show_generations}. Any change you make can be reset using
 }
 \examples{
 rename_generation("Gen Z", "Zoomer")
-rename_generation("Baby Boom", "Boomer")
+rename_generation("Boomer", "Baby Boom")
 show_generations()
 
-use_zoomer()
 use_gen_z()
+use_zoomer()
 use_gen_y()
 use_millennial()
 use_13th()
-use_gen_z()
-use_baby_boom()
+use_gen_x()
 use_boomer()
+use_baby_boom()
 }

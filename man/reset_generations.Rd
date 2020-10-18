@@ -11,6 +11,10 @@ Changes to the underlying dataset can be made with \code{rename_generation}
 or \code{redefine_generation}. This function undoes all these changes and
 reverts the data back to its out-of-the-box names and definitions.
 }
+\examples{
+reset_generations()
+
+}
 \seealso{
 \code{\link{rename_generation}}, \code{\link{redefine_generation}}
 }

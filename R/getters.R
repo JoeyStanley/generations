@@ -1,6 +1,8 @@
 #' Show generational data
 #' 
 #' Displays the generation names, start years, and end years.
+#' @examples 
+#' show_generations()
 #' @export
 show_generations <- function() {
   .gen_df[order(-.gen_df$start),c("name", "start", "end")]

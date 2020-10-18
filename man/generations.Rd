@@ -2,7 +2,7 @@
 % Please edit documentation in R/generations.R
 \name{generations}
 \alias{generations}
-\title{Convert Year of Birth to Generations.}
+\title{Convert year of birth to generations}
 \usage{
 generations(
   yob,
