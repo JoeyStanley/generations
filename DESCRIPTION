@@ -1,6 +1,6 @@
 Package: generations
 Title: Converts Birth Years to Generation Names
-Version: 0.0.1
+Version: 0.1
 Authors@R: 
     person(given = "Joseph A.",
            family = "Stanley",

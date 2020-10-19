@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">generations</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1</span>
       </span>
     </div>
 
@@ -70,9 +70,11 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-
-<p>Converts Birth Years to Generation Names</p>
-<p>This package contains functions that will convert years of birth into names of generational cohorts. For example, <code>1989</code> becomes <code>"Millennial"</code>.</p>
+<div id="generations" class="section level1">
+<div class="page-header"><h1 class="hasAnchor">
+<a href="#generations" class="anchor"></a>generations</h1></div>
+<p>Convert birth years to generation names.</p>
+<p>This package contains functions that will convert years of birth into names of generational cohorts. For example, <code>1989</code> becomes <code>"Millennial"</code>. The package contains several helper functions to modify the underlying lookup table as well as way to query it.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -122,7 +124,7 @@
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="no">many_yobs</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="no">yob</span>, <span class="kw">fill</span> <span class="kw">=</span> <span class="no">gen</span>)) +
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span>(<span class="kw">binwidth</span> <span class="kw">=</span> <span class="fl">1</span>) +
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_brewer</a></span>(<span class="kw">name</span> <span class="kw">=</span> <span class="kw">NULL</span>, <span class="kw">palette</span> <span class="kw">=</span> <span class="st">"Set1"</span>)</pre></div>
-<p><img src="README_files/figure-gfm/unnamed-chunk-10-1.png"><!-- --></p>
+<p><img src="reference/figures/README-unnamed-chunk-10-1.png"><!-- --></p>
 <p>How this additional portion is formatted can be adjusted. If rendering an en dash is troublesome for you, you can change it to something else with <code>years_range_sep</code>. You may also want to change the space between the generation name and the opening parenthesis into a newline character with <code>years_sep</code>, again for visualization purposes.</p>
 <div class="sourceCode" id="cb13"><pre class="r"><span class="no">many_yobs</span> <span class="kw">&lt;-</span> <span class="no">many_yobs</span> <span class="kw">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="kw">gen</span> <span class="kw">=</span> <span class="fu"><a href="reference/generations.html">generations</a></span>(<span class="no">yob</span>, <span class="kw">full_names</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">years</span> <span class="kw">=</span> <span class="fl">TRUE</span>,
@@ -133,7 +135,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_brewer</a></span>(<span class="kw">name</span> <span class="kw">=</span> <span class="kw">NULL</span>, <span class="kw">palette</span> <span class="kw">=</span> <span class="st">"Set1"</span>) +
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(<span class="kw">x</span> <span class="kw">=</span> <span class="kw">NULL</span>) +
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="kw">legend.key.height</span> <span class="kw">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/reexports.html">unit</a></span>(<span class="fl">1</span>, <span class="st">"cm"</span>))</pre></div>
-<p><img src="README_files/figure-gfm/unnamed-chunk-11-1.png"><!-- --></p>
+<p><img src="reference/figures/README-unnamed-chunk-11-1.png"><!-- --></p>
 <p>If you want to get really fancy, you can make the legend keys approximate the width they take up on the <em>x</em>-axis and put better tics marks.</p>
 <div class="sourceCode" id="cb14"><pre class="r"><span class="no">widths</span> <span class="kw">&lt;-</span> <span class="no">many_yobs</span> <span class="kw">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="no">gen</span>) <span class="kw">%&gt;%</span>
@@ -149,7 +151,7 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="kw">legend.position</span> <span class="kw">=</span> <span class="st">"bottom"</span>) +
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides</a></span>(<span class="kw">fill</span> <span class="kw">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html">guide_legend</a></span>(<span class="kw">nrow</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">label.position</span> <span class="kw">=</span> <span class="st">"bottom"</span>,
                              <span class="kw">keywidth</span> <span class="kw">=</span> <span class="no">widths</span>$<span class="no">width</span>, <span class="kw">default.unit</span> <span class="kw">=</span> <span class="st">"inches"</span>))</pre></div>
-<p><img src="README_files/figure-gfm/unnamed-chunk-12-1.png"><!-- --></p>
+<p><img src="reference/figures/README-unnamed-chunk-12-1.png"><!-- --></p>
 </div>
 </div>
 <div id="querying-generation-data" class="section level2">
@@ -246,7 +248,7 @@
 <p>Since changing one generation impacts adjacent generations, you’ll get a message showing you what the new ranges are for this, the previous, and the next generations.</p>
 <p>You can reset the data back to its original form with <code><a href="reference/reset_generations.html">reset_generations()</a></code>.</p>
 </div>
-
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
