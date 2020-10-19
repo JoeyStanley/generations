@@ -107,7 +107,7 @@ ggplot(many_yobs, aes(yob, fill = gen)) +
   scale_fill_brewer(name = NULL, palette = "Set1")
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-10-1.png)<!-- -->
 
 How this additional portion is formatted can be adjusted. If rendering
 an en dash is troublesome for you, you can change it to something else
@@ -127,7 +127,7 @@ ggplot(many_yobs, aes(yob, fill = gen)) +
   theme(legend.key.height = unit(1, "cm"))
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-11-1.png)<!-- -->
 
 If you want to get really fancy, you can make the legend keys
 approximate the width they take up on the *x*-axis and put better tics
@@ -150,7 +150,7 @@ ggplot(many_yobs, aes(yob, fill = gen)) +
                              keywidth = widths$width, default.unit = "inches"))
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-12-1.png)<!-- -->
 
 ## Querying generation data
 
