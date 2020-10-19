@@ -1,9 +1,12 @@
 
-Converts Birth Years to Generation Names
+# generations
+
+Convert birth years to generation names.
 
 This package contains functions that will convert years of birth into
 names of generational cohorts. For example, `1989` becomes
-`"Millennial"`.
+`"Millennial"`. The package contains several helper functions to modify
+the underlying lookup table as well as way to query it.
 
 ## Installation
 
