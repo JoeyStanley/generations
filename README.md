@@ -97,7 +97,9 @@ generations(yobs, years = TRUE)
     ## 6 Levels: Lost (1886–1907) G.I. (1908–1928) ... Gen Z (2008–2030)
 
 The primary purpose of this is for visualizations, since not everyone is
-familiar with (or agrees with) the year ranges.
+familiar with (or agrees with) the year ranges. For example, if you’ve
+got a bunch of people and want to visualize the distribution of when
+they were born, you could have very informative legends.
 
 ``` r
 many_yobs <- tibble(yob = floor(rnorm(1000, 1975, 15))) %>%
@@ -206,7 +208,8 @@ get_end("Millennial")
     ## [1] 2007
 
 You can also find the names of neighboring generations with
-`get_prev_gen()` and `get_next_gen()`.
+`get_prev_gen()` and `get_next_gen()`, though these were mostly created
+for internal purposes only rather than for you to use.
 
 ``` r
 get_next_gen("Millennial")
@@ -234,8 +237,8 @@ to reload it.
 The labels and years for each generation are mostly borrowed from Howe &
 Strauss’ Generational Theory books. However, not everyone agrees on the
 names and year ranges for the various generations. For this reason, the
-generations package makes it easy to modify the generations data to your
-liking.
+`generations` package makes it easy to modify the generations data to
+your liking.
 
 To rename a generation, use `rename_generation()`, with the old name
 first and the new name second. For example, if you want to use *Zoomer*

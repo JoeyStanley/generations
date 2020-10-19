@@ -113,12 +113,12 @@
 <p>What this does is simply add <code>"Generation"</code> to the end of each one, unless it’s <code>"Gen X"</code> (or Y, or Z), in which case it’ll expand it out to simply <code>"Generation X"</code>.</p>
 <p>You can also show the years included in each generation by adding the <code>years = TRUE</code> argument. This will add a space and, inside a pair of parentheses, the start and end years of that generation, separated by an en dash.</p>
 <div class="sourceCode" id="cb10"><pre class="r"><span class="fu"><a href="reference/generations.html">generations</a></span>(<span class="no">yobs</span>, <span class="kw">years</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">##  [1] G.I. (1908–1929)       Millennial (1984–2008) Gen Z (2008–2030)     </span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="co">##  [4] Silent (1929–1946)     G.I. (1908–1929)       Lost (1886–1908)      </span></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="co">##  [7] G.I. (1908–1929)       Gen X (1964–1984)      Lost (1886–1908)      </span></span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="co">## [10] Lost (1886–1908)      </span></span>
-<span id="cb11-5"><a href="#cb11-5"></a><span class="co">## 6 Levels: Lost (1886–1908) G.I. (1908–1929) ... Gen Z (2008–2030)</span></span></code></pre></div>
-<p>The primary purpose of this is for visualizations, since not everyone is familiar with (or agrees with) the year ranges.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">##  [1] G.I. (1908–1928)       Millennial (1984–2007) Gen Z (2008–2030)     </span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="co">##  [4] Silent (1929–1945)     G.I. (1908–1928)       Lost (1886–1907)      </span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="co">##  [7] G.I. (1908–1928)       Gen X (1964–1983)      Lost (1886–1907)      </span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="co">## [10] Lost (1886–1907)      </span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="co">## 6 Levels: Lost (1886–1907) G.I. (1908–1928) ... Gen Z (2008–2030)</span></span></code></pre></div>
+<p>The primary purpose of this is for visualizations, since not everyone is familiar with (or agrees with) the year ranges. For example, if you’ve got a bunch of people and want to visualize the distribution of when they were born, you could have very informative legends.</p>
 <div class="sourceCode" id="cb12"><pre class="r"><span class="no">many_yobs</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(<span class="kw">yob</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span>(<span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="fl">1000</span>, <span class="fl">1975</span>, <span class="fl">15</span>))) <span class="kw">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="kw">gen</span> <span class="kw">=</span> <span class="fu"><a href="reference/generations.html">generations</a></span>(<span class="no">yob</span>, <span class="kw">full_names</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">years</span> <span class="kw">=</span> <span class="fl">TRUE</span>))
 <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="no">many_yobs</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="no">yob</span>, <span class="kw">fill</span> <span class="kw">=</span> <span class="no">gen</span>)) +
@@ -161,36 +161,36 @@
 <div class="sourceCode" id="cb15"><pre class="r"><span class="fu"><a href="reference/show_generations.html">show_generations</a></span>()</pre></div>
 <div class="sourceCode" id="cb16"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co">##              name start  end</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="co">## 1           Gen Z  2008 2030</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="co">## 2      Millennial  1984 2008</span></span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="co">## 3           Gen X  1964 1984</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="co">## 4          Boomer  1946 1964</span></span>
-<span id="cb16-6"><a href="#cb16-6"></a><span class="co">## 5          Silent  1929 1946</span></span>
-<span id="cb16-7"><a href="#cb16-7"></a><span class="co">## 6            G.I.  1908 1929</span></span>
-<span id="cb16-8"><a href="#cb16-8"></a><span class="co">## 7            Lost  1886 1908</span></span>
-<span id="cb16-9"><a href="#cb16-9"></a><span class="co">## 8      Missionary  1865 1886</span></span>
-<span id="cb16-10"><a href="#cb16-10"></a><span class="co">## 9     Progressive  1844 1865</span></span>
-<span id="cb16-11"><a href="#cb16-11"></a><span class="co">## 10         Gilded  1822 1844</span></span>
-<span id="cb16-12"><a href="#cb16-12"></a><span class="co">## 11 Transcendental  1794 1822</span></span>
-<span id="cb16-13"><a href="#cb16-13"></a><span class="co">## 12     Compromise  1773 1794</span></span>
-<span id="cb16-14"><a href="#cb16-14"></a><span class="co">## 13     Republican  1746 1773</span></span>
-<span id="cb16-15"><a href="#cb16-15"></a><span class="co">## 14        Liberty  1727 1746</span></span>
-<span id="cb16-16"><a href="#cb16-16"></a><span class="co">## 15      Awakening  1704 1727</span></span>
-<span id="cb16-17"><a href="#cb16-17"></a><span class="co">## 16  Enlightenment  1675 1704</span></span>
-<span id="cb16-18"><a href="#cb16-18"></a><span class="co">## 17       Glorious  1649 1675</span></span>
-<span id="cb16-19"><a href="#cb16-19"></a><span class="co">## 18       Cavalier  1621 1649</span></span>
-<span id="cb16-20"><a href="#cb16-20"></a><span class="co">## 19        Puritan  1594 1621</span></span>
-<span id="cb16-21"><a href="#cb16-21"></a><span class="co">## 20  Parliamentary  1569 1594</span></span>
-<span id="cb16-22"><a href="#cb16-22"></a><span class="co">## 21    Elizabethan  1542 1569</span></span>
-<span id="cb16-23"><a href="#cb16-23"></a><span class="co">## 22       Reprisal  1517 1542</span></span>
-<span id="cb16-24"><a href="#cb16-24"></a><span class="co">## 23    Reformation  1497 1517</span></span>
-<span id="cb16-25"><a href="#cb16-25"></a><span class="co">## 24       Humanist  1459 1497</span></span>
-<span id="cb16-26"><a href="#cb16-26"></a><span class="co">## 25     Aurthurian  1435 1459</span></span></code></pre></div>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="co">## 2      Millennial  1984 2007</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="co">## 3           Gen X  1964 1983</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="co">## 4          Boomer  1946 1963</span></span>
+<span id="cb16-6"><a href="#cb16-6"></a><span class="co">## 5          Silent  1929 1945</span></span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="co">## 6            G.I.  1908 1928</span></span>
+<span id="cb16-8"><a href="#cb16-8"></a><span class="co">## 7            Lost  1886 1907</span></span>
+<span id="cb16-9"><a href="#cb16-9"></a><span class="co">## 8      Missionary  1865 1885</span></span>
+<span id="cb16-10"><a href="#cb16-10"></a><span class="co">## 9     Progressive  1844 1864</span></span>
+<span id="cb16-11"><a href="#cb16-11"></a><span class="co">## 10         Gilded  1822 1843</span></span>
+<span id="cb16-12"><a href="#cb16-12"></a><span class="co">## 11 Transcendental  1794 1821</span></span>
+<span id="cb16-13"><a href="#cb16-13"></a><span class="co">## 12     Compromise  1773 1793</span></span>
+<span id="cb16-14"><a href="#cb16-14"></a><span class="co">## 13     Republican  1746 1772</span></span>
+<span id="cb16-15"><a href="#cb16-15"></a><span class="co">## 14        Liberty  1727 1745</span></span>
+<span id="cb16-16"><a href="#cb16-16"></a><span class="co">## 15      Awakening  1704 1726</span></span>
+<span id="cb16-17"><a href="#cb16-17"></a><span class="co">## 16  Enlightenment  1675 1703</span></span>
+<span id="cb16-18"><a href="#cb16-18"></a><span class="co">## 17       Glorious  1649 1674</span></span>
+<span id="cb16-19"><a href="#cb16-19"></a><span class="co">## 18       Cavalier  1621 1648</span></span>
+<span id="cb16-20"><a href="#cb16-20"></a><span class="co">## 19        Puritan  1594 1620</span></span>
+<span id="cb16-21"><a href="#cb16-21"></a><span class="co">## 20  Parliamentary  1569 1593</span></span>
+<span id="cb16-22"><a href="#cb16-22"></a><span class="co">## 21    Elizabethan  1542 1568</span></span>
+<span id="cb16-23"><a href="#cb16-23"></a><span class="co">## 22       Reprisal  1517 1541</span></span>
+<span id="cb16-24"><a href="#cb16-24"></a><span class="co">## 23    Reformation  1497 1516</span></span>
+<span id="cb16-25"><a href="#cb16-25"></a><span class="co">## 24       Humanist  1459 1496</span></span>
+<span id="cb16-26"><a href="#cb16-26"></a><span class="co">## 25     Aurthurian  1435 1458</span></span></code></pre></div>
 <p>You can also get simple information. For example, if you want to know when the start or end year of a particular generation is, you can use <code><a href="reference/get_start.html">get_start()</a></code> or <code><a href="reference/get_start.html">get_end()</a></code>:</p>
 <div class="sourceCode" id="cb17"><pre class="r"><span class="fu"><a href="reference/get_start.html">get_start</a></span>(<span class="st">"Silent"</span>)</pre></div>
 <div class="sourceCode" id="cb18"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co">## [1] 1929</span></span></code></pre></div>
 <div class="sourceCode" id="cb19"><pre class="r"><span class="fu"><a href="reference/get_start.html">get_end</a></span>(<span class="st">"Millennial"</span>)</pre></div>
-<div class="sourceCode" id="cb20"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co">## [1] 2008</span></span></code></pre></div>
-<p>You can also find the names of neighboring generations with <code><a href="reference/get_prev_gen.html">get_prev_gen()</a></code> and <code><a href="reference/get_prev_gen.html">get_next_gen()</a></code>.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co">## [1] 2007</span></span></code></pre></div>
+<p>You can also find the names of neighboring generations with <code><a href="reference/get_prev_gen.html">get_prev_gen()</a></code> and <code><a href="reference/get_prev_gen.html">get_next_gen()</a></code>, though these were mostly created for internal purposes only rather than for you to use.</p>
 <div class="sourceCode" id="cb21"><pre class="r"><span class="fu"><a href="reference/get_prev_gen.html">get_next_gen</a></span>(<span class="st">"Millennial"</span>)</pre></div>
 <div class="sourceCode" id="cb22"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co">## [1] "Gen Z"</span></span></code></pre></div>
 <div class="sourceCode" id="cb23"><pre class="r"><span class="fu"><a href="reference/get_prev_gen.html">get_prev_gen</a></span>(<span class="st">"Missionary"</span>)</pre></div>
@@ -201,7 +201,7 @@
 <h2 class="hasAnchor">
 <a href="#customizing-generation-data" class="anchor"></a>Customizing generation data</h2>
 <p>The data that this package uses is loaded as a hidden object when you load the package. You may modify it with the functions described in this section. These changes will affect the dataset so long as the <code>generations</code> package is loaded. You’ll have to reset the data each time to reload it.</p>
-<p>The labels and years for each generation are mostly borrowed from Howe &amp; Strauss’ Generational Theory books. However, not everyone agrees on the names and year ranges for the various generations. For this reason, the generations package makes it easy to modify the generations data to your liking.</p>
+<p>The labels and years for each generation are mostly borrowed from Howe &amp; Strauss’ Generational Theory books. However, not everyone agrees on the names and year ranges for the various generations. For this reason, the <code>generations</code> package makes it easy to modify the generations data to your liking.</p>
 <p>To rename a generation, use <code><a href="reference/rename_generation.html">rename_generation()</a></code>, with the old name first and the new name second. For example, if you want to use <em>Zoomer</em> instead of <em>Gen Z</em>, you can do so.</p>
 <div class="sourceCode" id="cb25"><pre class="r"><span class="fu"><a href="reference/rename_generation.html">rename_generation</a></span>(<span class="st">"Gen Z"</span>, <span class="st">"Zoomer"</span>)</pre></div>
 <div class="sourceCode" id="cb26"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co">## Gen Z has been renamed Zoomer</span></span></code></pre></div>
@@ -209,30 +209,30 @@
 <div class="sourceCode" id="cb27"><pre class="r"><span class="fu"><a href="reference/show_generations.html">show_generations</a></span>()</pre></div>
 <div class="sourceCode" id="cb28"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co">##              name start  end</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a><span class="co">## 1          Zoomer  2008 2030</span></span>
-<span id="cb28-3"><a href="#cb28-3"></a><span class="co">## 2      Millennial  1984 2008</span></span>
-<span id="cb28-4"><a href="#cb28-4"></a><span class="co">## 3           Gen X  1964 1984</span></span>
-<span id="cb28-5"><a href="#cb28-5"></a><span class="co">## 4          Boomer  1946 1964</span></span>
-<span id="cb28-6"><a href="#cb28-6"></a><span class="co">## 5          Silent  1929 1946</span></span>
-<span id="cb28-7"><a href="#cb28-7"></a><span class="co">## 6            G.I.  1908 1929</span></span>
-<span id="cb28-8"><a href="#cb28-8"></a><span class="co">## 7            Lost  1886 1908</span></span>
-<span id="cb28-9"><a href="#cb28-9"></a><span class="co">## 8      Missionary  1865 1886</span></span>
-<span id="cb28-10"><a href="#cb28-10"></a><span class="co">## 9     Progressive  1844 1865</span></span>
-<span id="cb28-11"><a href="#cb28-11"></a><span class="co">## 10         Gilded  1822 1844</span></span>
-<span id="cb28-12"><a href="#cb28-12"></a><span class="co">## 11 Transcendental  1794 1822</span></span>
-<span id="cb28-13"><a href="#cb28-13"></a><span class="co">## 12     Compromise  1773 1794</span></span>
-<span id="cb28-14"><a href="#cb28-14"></a><span class="co">## 13     Republican  1746 1773</span></span>
-<span id="cb28-15"><a href="#cb28-15"></a><span class="co">## 14        Liberty  1727 1746</span></span>
-<span id="cb28-16"><a href="#cb28-16"></a><span class="co">## 15      Awakening  1704 1727</span></span>
-<span id="cb28-17"><a href="#cb28-17"></a><span class="co">## 16  Enlightenment  1675 1704</span></span>
-<span id="cb28-18"><a href="#cb28-18"></a><span class="co">## 17       Glorious  1649 1675</span></span>
-<span id="cb28-19"><a href="#cb28-19"></a><span class="co">## 18       Cavalier  1621 1649</span></span>
-<span id="cb28-20"><a href="#cb28-20"></a><span class="co">## 19        Puritan  1594 1621</span></span>
-<span id="cb28-21"><a href="#cb28-21"></a><span class="co">## 20  Parliamentary  1569 1594</span></span>
-<span id="cb28-22"><a href="#cb28-22"></a><span class="co">## 21    Elizabethan  1542 1569</span></span>
-<span id="cb28-23"><a href="#cb28-23"></a><span class="co">## 22       Reprisal  1517 1542</span></span>
-<span id="cb28-24"><a href="#cb28-24"></a><span class="co">## 23    Reformation  1497 1517</span></span>
-<span id="cb28-25"><a href="#cb28-25"></a><span class="co">## 24       Humanist  1459 1497</span></span>
-<span id="cb28-26"><a href="#cb28-26"></a><span class="co">## 25     Aurthurian  1435 1459</span></span></code></pre></div>
+<span id="cb28-3"><a href="#cb28-3"></a><span class="co">## 2      Millennial  1984 2007</span></span>
+<span id="cb28-4"><a href="#cb28-4"></a><span class="co">## 3           Gen X  1964 1983</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a><span class="co">## 4          Boomer  1946 1963</span></span>
+<span id="cb28-6"><a href="#cb28-6"></a><span class="co">## 5          Silent  1929 1945</span></span>
+<span id="cb28-7"><a href="#cb28-7"></a><span class="co">## 6            G.I.  1908 1928</span></span>
+<span id="cb28-8"><a href="#cb28-8"></a><span class="co">## 7            Lost  1886 1907</span></span>
+<span id="cb28-9"><a href="#cb28-9"></a><span class="co">## 8      Missionary  1865 1885</span></span>
+<span id="cb28-10"><a href="#cb28-10"></a><span class="co">## 9     Progressive  1844 1864</span></span>
+<span id="cb28-11"><a href="#cb28-11"></a><span class="co">## 10         Gilded  1822 1843</span></span>
+<span id="cb28-12"><a href="#cb28-12"></a><span class="co">## 11 Transcendental  1794 1821</span></span>
+<span id="cb28-13"><a href="#cb28-13"></a><span class="co">## 12     Compromise  1773 1793</span></span>
+<span id="cb28-14"><a href="#cb28-14"></a><span class="co">## 13     Republican  1746 1772</span></span>
+<span id="cb28-15"><a href="#cb28-15"></a><span class="co">## 14        Liberty  1727 1745</span></span>
+<span id="cb28-16"><a href="#cb28-16"></a><span class="co">## 15      Awakening  1704 1726</span></span>
+<span id="cb28-17"><a href="#cb28-17"></a><span class="co">## 16  Enlightenment  1675 1703</span></span>
+<span id="cb28-18"><a href="#cb28-18"></a><span class="co">## 17       Glorious  1649 1674</span></span>
+<span id="cb28-19"><a href="#cb28-19"></a><span class="co">## 18       Cavalier  1621 1648</span></span>
+<span id="cb28-20"><a href="#cb28-20"></a><span class="co">## 19        Puritan  1594 1620</span></span>
+<span id="cb28-21"><a href="#cb28-21"></a><span class="co">## 20  Parliamentary  1569 1593</span></span>
+<span id="cb28-22"><a href="#cb28-22"></a><span class="co">## 21    Elizabethan  1542 1568</span></span>
+<span id="cb28-23"><a href="#cb28-23"></a><span class="co">## 22       Reprisal  1517 1541</span></span>
+<span id="cb28-24"><a href="#cb28-24"></a><span class="co">## 23    Reformation  1497 1516</span></span>
+<span id="cb28-25"><a href="#cb28-25"></a><span class="co">## 24       Humanist  1459 1496</span></span>
+<span id="cb28-26"><a href="#cb28-26"></a><span class="co">## 25     Aurthurian  1435 1458</span></span></code></pre></div>
 <div class="sourceCode" id="cb29"><pre class="r"><span class="fu"><a href="reference/generations.html">generations</a></span>(<span class="no">yobs</span>)</pre></div>
 <div class="sourceCode" id="cb30"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co">##  [1] G.I.       Millennial Zoomer     Silent     G.I.       Lost      </span></span>
 <span id="cb30-2"><a href="#cb30-2"></a><span class="co">##  [7] G.I.       Gen X      Lost       Lost      </span></span>

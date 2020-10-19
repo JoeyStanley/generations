@@ -74,7 +74,7 @@ You can also show the years included in each generation by adding the `years = T
 generations(yobs, years = TRUE)
 ```
 
-The primary purpose of this is for visualizations, since not everyone is familiar with (or agrees with) the year ranges.
+The primary purpose of this is for visualizations, since not everyone is familiar with (or agrees with) the year ranges. For example, if you've got a bunch of people and want to visualize the distribution of when they were born, you could have very informative legends.
 
 ```{r, echo = FALSE}
 set.seed(10)
@@ -136,7 +136,7 @@ get_start("Silent")
 get_end("Millennial")
 ```
 
-You can also find the names of neighboring generations with `get_prev_gen()` and `get_next_gen()`. 
+You can also find the names of neighboring generations with `get_prev_gen()` and `get_next_gen()`, though these were mostly created for internal purposes only rather than for you to use.
 
 ```{r}
 get_next_gen("Millennial")
@@ -149,7 +149,7 @@ Note that if ask for something newer than Gen Z or older than Aurthurian it will
 
 The data that this package uses is loaded as a hidden object when you load the package. You may modify it with the functions described in this section. These changes will affect the dataset so long as the `generations` package is loaded. You'll have to reset the data each time to reload it. 
 
-The labels and years for each generation are mostly borrowed from Howe & Strauss' Generational Theory books. However, not everyone agrees on the names and year ranges for the various generations. For this reason, the generations package makes it easy to modify the generations data to your liking. 
+The labels and years for each generation are mostly borrowed from Howe & Strauss' Generational Theory books. However, not everyone agrees on the names and year ranges for the various generations. For this reason, the `generations` package makes it easy to modify the generations data to your liking. 
 
 To rename a generation, use `rename_generation()`, with the old name first and the new name second. For example, if you want to use *Zoomer* instead of *Gen Z*, you can do so.
 
