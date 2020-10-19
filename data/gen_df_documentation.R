@@ -16,7 +16,7 @@ if (FALSE) {
                                 1794,1822,1844,
                                 1865,1886,1908,1929,
                                 1946,1964,1984,2008)))
-  gen_df$end <- c(2030, gen_df$start[-length(gen_df$start)])
+  gen_df$end <- c(2030, gen_df$start[-length(gen_df$start)]-1)
   gen_df <- gen_df[order(-gen_df$start),]
   print(gen_df)
   
