@@ -32,7 +32,7 @@ library(ggplot2)
 
 ## Converting years to generations
 
-The main function in this package is `generations`. Given a vector of
+The main function in this package is `generations()`. Given a vector of
 integers, it’ll return a factor of generation names. First, I’ll
 generate some random years of birth.
 
@@ -63,9 +63,9 @@ FALSE`.
 
 ### Customizing output
 
-There are some tweaks you can do to adjust the output of `generations`.
-First, you can return longer forms of the generational names by
-specifying `full_names = TRUE`.
+There are some tweaks you can do to adjust the output of
+`generations()`. First, you can return longer forms of the generational
+names by specifying `full_names = TRUE`.
 
 ``` r
 generations(yobs, full_names = TRUE)
@@ -154,9 +154,9 @@ ggplot(many_yobs, aes(yob, fill = gen)) +
 
 ## Querying generation data
 
-To see a list of the generational data, you can use `show_generations`,
-which will return a data frame containing the names, start years, and
-end years.
+To see a list of the generational data, you can use
+`show_generations()`, which will return a data frame containing the
+names, start years, and end years.
 
 ``` r
 show_generations()
@@ -291,7 +291,7 @@ generations(yobs)
     ## Levels: Lost G.I. Silent Gen X Millennial Zoomer
 
 Because many people may want to use the term *Zoomer* instead of *Gen
-Z*, a shortcut function, `use_zoomer`, which is just a wrapper around
+Z*, a shortcut function, `use_zoomer()`, which is just a wrapper around
 `rename_generation("Gen Z", "Zoomer")`, is included in the package. The
 other shortcut functions are `use_gen_y()`, `use_13th()`,
 `use_baby_boom()` as well as their reciprocals `use_gen_z()`,
@@ -299,8 +299,8 @@ other shortcut functions are `use_gen_y()`, `use_13th()`,
 
 You may also want to change the years. For example, many people consider
 1997 as the end of the Millennial Generation. You can make this change
-with `redefine_generation`. With this function, you must specify the new
-start and the new end year.
+with `redefine_generation()`. With this function, you must specify the
+new start and the new end year.
 
 ``` r
 redefine_generation("Millennial", 1983, 1997)
@@ -318,3 +318,10 @@ the next generations.
 
 You can reset the data back to its original form with
 `reset_generations()`.
+
+## Conclusion
+
+That’s the package so far\! I plan on adding more things in the future,
+primarily to handle stability issues and to include some error catching.
+Hopefully, if you use generational cohorts in your data, this package is
+useful for you.
