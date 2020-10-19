@@ -1,6 +1,7 @@
 template:
   params:
     bootswatch: flatly
+    ganalytics: UA-86802921-5
 reference:
   - title: "Main function"
   - contents:
