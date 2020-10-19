@@ -68,10 +68,16 @@ generations <- function(yob, full_names = FALSE,
 
 #' Get full generation names
 #' 
-#' For internal use only.
+#' For internal use only. Takes a vector of generation names and converts it to 
+#' their long format. Specifically, it adds "Generation" to most of them, except 
+#' Gen X/Y/Z, in which case it just expands the first word.
 #' @param gens a vector
+#' @return a vector
+#' @examples 
+#' full_generation_names(c("Millennial", "Gen X"))
+#' @keywords internal
 full_generation_names <- function(gens) {
-  # Super clunky base-R version of what case_when could do more elegantly
+  # Super clunky base-R version of what dplyr::case_when could do more elegantly
   
   # First handle all of them besides Gen X/Y/Z
   gens[!grepl("Gen [XYZ]", gens)] <- paste(gens[!grepl("Gen [XYZ]", gens)], "Generation")
@@ -81,10 +87,18 @@ full_generation_names <- function(gens) {
 
 #' Get shortened generation names
 #' 
+#' Takes a vector of generation names and gets the shortened versions of them. 
+#' Specifically, it shortens "Generation X/Y/Z" to just "Gen X/Y/Z" and in all
+#' other cases it just removes the word "Generation" entirely.
+#' 
 #' For internal use only. Mostly used within \code{add_years()} so that 
 #' \code{generations()} words properly when \code{full_names} and \code{years} 
 #' are both specified.
 #' @param gens a vector
+#' @return a vector
+#' @examples 
+#' short_generation_names(c("Millennial Generation", "Generation X"))
+#' @keywords internal
 short_generation_names <- function(gens) {
   # Super clunky base-R version of what case_when could do more elegantly
   
@@ -97,11 +111,16 @@ short_generation_names <- function(gens) {
 
 #' Add years to generation name
 #' 
-#' For internal use only.
+#' Takes a vector of generation names (short or long) and two integers. Adds ` (x–y)`
+#' to the end of the names. The space and en-dash can be modified with the two
+#' arguments. 
 #' 
 #' @param gens a vector
 #' @param years_sep a string
 #' @param years_range_sep a string
+#' @examples 
+#' add_years(c("Millennial", "Gen X"))
+#' @keywords internal
 add_years <- function(gens, years_sep, years_range_sep) {
   paste0(gens,
          years_sep,

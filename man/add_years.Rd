@@ -14,5 +14,11 @@ add_years(gens, years_sep, years_range_sep)
 \item{years_range_sep}{a string}
 }
 \description{
-For internal use only.
+Takes a vector of generation names (short or long) and two integers. Adds \verb{ (x–y)}
+to the end of the names. The space and en-dash can be modified with the two
+arguments.
 }
+\examples{
+add_years(c("Millennial", "Gen X"))
+}
+\keyword{internal}

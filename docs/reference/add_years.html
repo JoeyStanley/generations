@@ -40,7 +40,9 @@
 
 
 <meta property="og:title" content="Add years to generation name — add_years" />
-<meta property="og:description" content="For internal use only." />
+<meta property="og:description" content="Takes a vector of generation names (short or long) and two integers. Adds  (x–y)
+to the end of the names. The space and en-dash can be modified with the two
+arguments." />
 
 
 
@@ -117,7 +119,9 @@
     </div>
 
     <div class="ref-description">
-    <p>For internal use only.</p>
+    <p>Takes a vector of generation names (short or long) and two integers. Adds <code> (x–y)</code>
+to the end of the names. The space and en-dash can be modified with the two
+arguments.</p>
     </div>
 
     <pre class="usage"><span class='fu'>add_years</span>(<span class='no'>gens</span>, <span class='no'>years_sep</span>, <span class='no'>years_range_sep</span>)</pre>
@@ -140,6 +144,8 @@
     </table>
 
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>add_years</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Millennial"</span>, <span class='st'>"Gen X"</span>))</div><div class='output co'>#&gt; <span class='error'>Error in add_years(c("Millennial", "Gen X")): could not find function "add_years"</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

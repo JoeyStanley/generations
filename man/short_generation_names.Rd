@@ -9,8 +9,20 @@ short_generation_names(gens)
 \arguments{
 \item{gens}{a vector}
 }
+\value{
+a vector
+}
 \description{
+Takes a vector of generation names and gets the shortened versions of them.
+Specifically, it shortens "Generation X/Y/Z" to just "Gen X/Y/Z" and in all
+other cases it just removes the word "Generation" entirely.
+}
+\details{
 For internal use only. Mostly used within \code{add_years()} so that
 \code{generations()} words properly when \code{full_names} and \code{years}
 are both specified.
 }
+\examples{
+short_generation_names(c("Millennial Generation", "Generation X"))
+}
+\keyword{internal}

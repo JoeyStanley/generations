@@ -9,6 +9,15 @@ full_generation_names(gens)
 \arguments{
 \item{gens}{a vector}
 }
-\description{
-For internal use only.
+\value{
+a vector
 }
+\description{
+For internal use only. Takes a vector of generation names and converts it to
+their long format. Specifically, it adds "Generation" to most of them, except
+Gen X/Y/Z, in which case it just expands the first word.
+}
+\examples{
+full_generation_names(c("Millennial", "Gen X"))
+}
+\keyword{internal}

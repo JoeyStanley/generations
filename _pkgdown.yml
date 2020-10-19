@@ -2,20 +2,14 @@ template:
   params:
     bootswatch: flatly
 reference:
-  - title: "Main function and its helper functions"
+  - title: "Main function"
   - contents:
     - generations
-    - add_years
-    - full_generation_names
-    - short_generation_names
   - title: "Getters"
     desc: "Functions to get information about the generational data"
   - contents:
     - show_generations
-    - get_start
-    - get_end
-    - get_prev_gen
-    - get_next_gen
+    - starts_with("get")
   - title: "Setters"
     desc: "Functions to modify generational data"
   - contents:
@@ -23,6 +17,3 @@ reference:
     - redefine_generation
     - starts_with("use_")
     - reset_generations
-  - title: "data"
-  - contents:
-    - gen_df
