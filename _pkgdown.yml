@@ -1,7 +1,16 @@
+home:
+  title: generations
+  description: Convert birth years to generation names
+development:
+  mode: unreleased
 template:
   params:
     bootswatch: flatly
     ganalytics: UA-86802921-5
+  opengraph:
+    twitter:
+      creator: "@joeystsanley"
+      card: summary_large_image
 reference:
   - title: "Main function"
   - contents:
