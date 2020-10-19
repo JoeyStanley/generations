@@ -90,11 +90,11 @@ en dash.
 generations(yobs, years = TRUE)
 ```
 
-    ##  [1] G.I. (1908–1929)       Millennial (1984–2008) Gen Z (2008–2030)     
-    ##  [4] Silent (1929–1946)     G.I. (1908–1929)       Lost (1886–1908)      
-    ##  [7] G.I. (1908–1929)       Gen X (1964–1984)      Lost (1886–1908)      
-    ## [10] Lost (1886–1908)      
-    ## 6 Levels: Lost (1886–1908) G.I. (1908–1929) ... Gen Z (2008–2030)
+    ##  [1] G.I. (1908–1928)       Millennial (1984–2007) Gen Z (2008–2030)     
+    ##  [4] Silent (1929–1945)     G.I. (1908–1928)       Lost (1886–1907)      
+    ##  [7] G.I. (1908–1928)       Gen X (1964–1983)      Lost (1886–1907)      
+    ## [10] Lost (1886–1907)      
+    ## 6 Levels: Lost (1886–1907) G.I. (1908–1928) ... Gen Z (2008–2030)
 
 The primary purpose of this is for visualizations, since not everyone is
 familiar with (or agrees with) the year ranges.
@@ -164,30 +164,30 @@ show_generations()
 
     ##              name start  end
     ## 1           Gen Z  2008 2030
-    ## 2      Millennial  1984 2008
-    ## 3           Gen X  1964 1984
-    ## 4          Boomer  1946 1964
-    ## 5          Silent  1929 1946
-    ## 6            G.I.  1908 1929
-    ## 7            Lost  1886 1908
-    ## 8      Missionary  1865 1886
-    ## 9     Progressive  1844 1865
-    ## 10         Gilded  1822 1844
-    ## 11 Transcendental  1794 1822
-    ## 12     Compromise  1773 1794
-    ## 13     Republican  1746 1773
-    ## 14        Liberty  1727 1746
-    ## 15      Awakening  1704 1727
-    ## 16  Enlightenment  1675 1704
-    ## 17       Glorious  1649 1675
-    ## 18       Cavalier  1621 1649
-    ## 19        Puritan  1594 1621
-    ## 20  Parliamentary  1569 1594
-    ## 21    Elizabethan  1542 1569
-    ## 22       Reprisal  1517 1542
-    ## 23    Reformation  1497 1517
-    ## 24       Humanist  1459 1497
-    ## 25     Aurthurian  1435 1459
+    ## 2      Millennial  1984 2007
+    ## 3           Gen X  1964 1983
+    ## 4          Boomer  1946 1963
+    ## 5          Silent  1929 1945
+    ## 6            G.I.  1908 1928
+    ## 7            Lost  1886 1907
+    ## 8      Missionary  1865 1885
+    ## 9     Progressive  1844 1864
+    ## 10         Gilded  1822 1843
+    ## 11 Transcendental  1794 1821
+    ## 12     Compromise  1773 1793
+    ## 13     Republican  1746 1772
+    ## 14        Liberty  1727 1745
+    ## 15      Awakening  1704 1726
+    ## 16  Enlightenment  1675 1703
+    ## 17       Glorious  1649 1674
+    ## 18       Cavalier  1621 1648
+    ## 19        Puritan  1594 1620
+    ## 20  Parliamentary  1569 1593
+    ## 21    Elizabethan  1542 1568
+    ## 22       Reprisal  1517 1541
+    ## 23    Reformation  1497 1516
+    ## 24       Humanist  1459 1496
+    ## 25     Aurthurian  1435 1458
 
 You can also get simple information. For example, if you want to know
 when the start or end year of a particular generation is, you can use
@@ -203,7 +203,7 @@ get_start("Silent")
 get_end("Millennial")
 ```
 
-    ## [1] 2008
+    ## [1] 2007
 
 You can also find the names of neighboring generations with
 `get_prev_gen()` and `get_next_gen()`.
@@ -257,30 +257,30 @@ show_generations()
 
     ##              name start  end
     ## 1          Zoomer  2008 2030
-    ## 2      Millennial  1984 2008
-    ## 3           Gen X  1964 1984
-    ## 4          Boomer  1946 1964
-    ## 5          Silent  1929 1946
-    ## 6            G.I.  1908 1929
-    ## 7            Lost  1886 1908
-    ## 8      Missionary  1865 1886
-    ## 9     Progressive  1844 1865
-    ## 10         Gilded  1822 1844
-    ## 11 Transcendental  1794 1822
-    ## 12     Compromise  1773 1794
-    ## 13     Republican  1746 1773
-    ## 14        Liberty  1727 1746
-    ## 15      Awakening  1704 1727
-    ## 16  Enlightenment  1675 1704
-    ## 17       Glorious  1649 1675
-    ## 18       Cavalier  1621 1649
-    ## 19        Puritan  1594 1621
-    ## 20  Parliamentary  1569 1594
-    ## 21    Elizabethan  1542 1569
-    ## 22       Reprisal  1517 1542
-    ## 23    Reformation  1497 1517
-    ## 24       Humanist  1459 1497
-    ## 25     Aurthurian  1435 1459
+    ## 2      Millennial  1984 2007
+    ## 3           Gen X  1964 1983
+    ## 4          Boomer  1946 1963
+    ## 5          Silent  1929 1945
+    ## 6            G.I.  1908 1928
+    ## 7            Lost  1886 1907
+    ## 8      Missionary  1865 1885
+    ## 9     Progressive  1844 1864
+    ## 10         Gilded  1822 1843
+    ## 11 Transcendental  1794 1821
+    ## 12     Compromise  1773 1793
+    ## 13     Republican  1746 1772
+    ## 14        Liberty  1727 1745
+    ## 15      Awakening  1704 1726
+    ## 16  Enlightenment  1675 1703
+    ## 17       Glorious  1649 1674
+    ## 18       Cavalier  1621 1648
+    ## 19        Puritan  1594 1620
+    ## 20  Parliamentary  1569 1593
+    ## 21    Elizabethan  1542 1568
+    ## 22       Reprisal  1517 1541
+    ## 23    Reformation  1497 1516
+    ## 24       Humanist  1459 1496
+    ## 25     Aurthurian  1435 1458
 
 ``` r
 generations(yobs)
